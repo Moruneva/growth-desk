@@ -17,4 +17,6 @@ While Growth Desk remains an **unreleased project**, Moruneva has published inde
 - [Creator usage rights field guide](https://moruneva.com/creator-usage-rights-guide) — worked scenarios, failure modes, alternatives and separate rights checks.
 - [n8n Credential Handoff Map](https://moruneva.com/n8n-credential-handoff-map) — a separate local reference checker for exported credential references; not a live credential validation.
 
+**Independent user research (open, voluntary):** [Compare a fictional case with your existing free method](resources/independent-workflow-comparison.md), then share non-identifying findings privately or in [open discussion #1](https://github.com/Moruneva/growth-desk/issues/1). This is a request for evidence, not a claim that anyone has participated.
+
 These resources do **not** constitute a released Growth Desk product or an integrated workflow between tools. Moruneva has not published independently verified client outcomes or paid customer case studies.
