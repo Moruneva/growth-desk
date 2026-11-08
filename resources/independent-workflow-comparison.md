@@ -40,7 +40,7 @@ Send only your own observations, without any customer details:
 
 **Reply privately:** [Email Moruneva with voluntary research feedback](mailto:hello@moruneva.com?subject=Voluntary%20independent%20workflow%20comparison).
 
-If you prefer to comment publicly, share only non-identifying general results in the [research discussion](https://github.com/Moruneva/growth-desk/issues). Avoid naming employers, clients, creators, customers, or individual accounts. You can participate without giving your name or authorizing marketing contact. Email replies may reveal your sending address to Moruneva, as ordinary email does; we will not publish an email or personal result without permission.
+If you prefer to comment publicly, share only non-identifying general results in the [research discussion](https://github.com/Moruneva/growth-desk/issues/1). Avoid naming employers, clients, creators, customers, or individual accounts. You can participate without giving your name or authorizing marketing contact. Email replies may reveal your sending address to Moruneva, as ordinary email does; we will not publish an email or personal result without permission.
 
 **Research ethics:** Voluntary and uncompensated; no promise of a reward, employment, endorsement, or access to a future paid product. We will distinguish verified participant responses from merely publishing this invitation. There is no automated outreach or telemetry in this public document.
 
