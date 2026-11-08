@@ -16,6 +16,7 @@ While Growth Desk remains an **unreleased project**, Moruneva has published inde
 - [Creator Rights: free preflight worksheet and fictional cases](resources/creator-rights-preflight.md) — a standalone, spreadsheet-first checklist with source links; safe to read without an account.
 - [Creator usage rights field guide](https://moruneva.com/creator-usage-rights-guide) — worked scenarios, failure modes, alternatives and separate rights checks.
 - [n8n Credential Handoff Map](https://moruneva.com/n8n-credential-handoff-map) — a separate local reference checker for exported credential references; not a live credential validation.
+- [Evidence-First Business Tracker — voluntary early interest study](https://moruneva.com/evidence-first-business-tracker) — free, wholly fictional downloadable activity CSV and a neutral comparison with your existing spreadsheet. The seven-tab Excel workbook remains an internal beta; **not for sale**, with no checkout or orders.
 
 **Independent user research (open, voluntary):** [Compare a fictional case with your existing free method](resources/independent-workflow-comparison.md), then share non-identifying findings privately or in [open discussion #1](https://github.com/Moruneva/growth-desk/issues/1). This is a request for evidence, not a claim that anyone has participated.
 
