@@ -10,6 +10,7 @@ No account signup, payment, or personal data submission is requested here.
 
 ## Independent, reproducible technical evidence
 
+- [Two approvals + payment gate, source and 18 offline tests](resources/approval-payment-release-gate/README.md) — isolated, fictional input contract that never sends or charges; it complements rather than replaces the site's interactive guide. The new public sample is unrelated to any paid external client or released Growth Desk product.
 - [Synthetic lead-intake reliability sample](resources/lead-intake-reliability-sample/README.md) — standalone Python/SQLite experiment with 10 offline tests covering duplicate webhook events, invalid intake, pending human-approval outbox, rollback and restart. Built only with fictional examples; not part of the unreleased Growth Desk product, not an n8n deployment, and not a client case study.
 
 ## Free, separately available Moruneva resources
