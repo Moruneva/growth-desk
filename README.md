@@ -8,6 +8,10 @@ The project aims to help small teams organize source-backed content drafts, prep
 
 No account signup, payment, or personal data submission is requested here.
 
+## Independent, reproducible technical evidence
+
+- [Synthetic lead-intake reliability sample](resources/lead-intake-reliability-sample/README.md) — standalone Python/SQLite experiment with 10 offline tests covering duplicate webhook events, invalid intake, pending human-approval outbox, rollback and restart. Built only with fictional examples; not part of the unreleased Growth Desk product, not an n8n deployment, and not a client case study.
+
 ## Free, separately available Moruneva resources
 
 While Growth Desk remains an **unreleased project**, Moruneva has published independent browser-local utilities and worked guides that people can use today:
