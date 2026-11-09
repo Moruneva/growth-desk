@@ -28,6 +28,8 @@ The checker offers planning prompts only. It does **not** determine contract val
 
 The checker does **not** verify live access, credential validity, scopes, or successful transfer. Do not enter any real API keys or customer data. You are **not required to import or run** the fictional sample in n8n.
 
+**Optional structured scorecard (new 9 November):** [Download the free, neutral 15-check CSV](https://moruneva.com/examples/n8n-handoff-comparison-scorecard.csv) and [read the full, evidence-first comparison guide](https://moruneva.com/n8n-handoff-comparison-guide). These make your results easier to compare while preserving the same fictional workflow and privacy restrictions. Please do not send the completed file if it contains private details. Independent testing and pricing remain unverified.
+
 ## Optional feedback (about five short answers)
 
 Send only your own observations, without any customer details:
