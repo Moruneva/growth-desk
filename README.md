@@ -16,6 +16,7 @@ No account signup, payment, or personal data submission is requested here.
 
 While Growth Desk remains an **unreleased project**, Moruneva has published independent browser-local utilities and worked guides that people can use today:
 
+- [Two Approvals + Payment Gate: fictional release checker and source-backed guide](https://moruneva.com/approval-payment-release-guide) — browser-local decision rules that never send messages or verify payments. A separate company-maintained script has 18 offline regression cases; no payment account, production workflow, customer data or real buyer outcome was tested. The website is separate from the unreleased Growth Desk project.
 - [Creator Rights Window Checker](https://moruneva.com/creator-rights-window) — plan a comparison of recorded usage windows, intended ad dates and platform permission review. This does not approve legal use.
 - [Creator Rights: free preflight worksheet and fictional cases](resources/creator-rights-preflight.md) — a standalone, spreadsheet-first checklist with source links; safe to read without an account.
 - [Creator usage rights field guide](https://moruneva.com/creator-usage-rights-guide) — worked scenarios, failure modes, alternatives and separate rights checks.
