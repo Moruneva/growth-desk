@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head><base target="_top"><meta charset="utf-8"><style>
+body{font:13px/1.5 Arial,sans-serif;color:#142d24;padding:14px}label{display:block;font-weight:bold;margin:12px 0 3px}
+select,input,button{box-sizing:border-box;width:100%;padding:9px;border:1px solid #9bab9f;border-radius:5px}
+button{margin-top:16px;background:#183d2e;color:#fff;cursor:pointer}button:disabled{opacity:.5}
+.hint{font-size:12px;color:#58665f}.error{color:#9b3030}.report{border-top:1px solid #ddd;margin-top:15px;padding-top:12px}
+.item{padding:7px 0;border-bottom:1px solid #eee;overflow-wrap:anywhere}code{font-size:11px}
+</style></head><body>
+<h2>Sheet Change Preview</h2>
+<p class="hint">Compare two tabs in this spreadsheet. No data is uploaded or modified. Only row numbers, column names and risk categories appear in the report.</p>
+<label for="b">Original tab</label><select id="b"></select>
+<label for="p">Proposed tab</label><select id="p"></select>
+<label for="k">Key column header (exact spelling)</label><input id="k" placeholder="e.g. SKU" maxlength="120">
+<button id="run">Preview differences</button>
+<div id="result" role="status" aria-live="polite"></div>
+<p class="hint">Caution: compares displayed values, not underlying formulas or importer behavior. A missing row does not prove deletion.</p>
+<script>
+const $=id=>document.getElementById(id);
+function fail(error){$("result").textContent="Error: "+(error&&error.message||String(error));$("result").className="error";$("run").disabled=false;}
+google.script.run.withSuccessHandler(names=>{
+  for(const id of ["b","p"])for(const n of names){const o=document.createElement("option");o.value=n;o.textContent=n;$(id).appendChild(o);}
+  if(names.length>1)$("p").selectedIndex=1;
+}).withFailureHandler(fail).getChangePreviewTabs();
+$("run").addEventListener("click",()=>{
+ $("run").disabled=true;$("result").textContent="Comparing...";
+ google.script.run.withSuccessHandler(r=>{
+  $("run").disabled=false;const out=$("result");out.className="report";out.replaceChildren();
+  const h=document.createElement("h3");h.textContent=r.summary.findings+" findings";out.appendChild(h);
+  const kinds=document.createElement("p");kinds.textContent=Object.entries(r.summary.byKind).map(([k,n])=>k+": "+n).join(" · ")||"No differences found";out.appendChild(kinds);
+  const info=document.createElement("p");info.className="hint";info.textContent=r.scope;out.appendChild(info);
+  for(const item of r.findings.slice(0,40)){const p=document.createElement("div");p.className="item";p.textContent=item.kind+" | original row "+(item.beforeRow||"—")+" | proposed row "+(item.proposedRow||"—")+(item.field?" | "+item.field:"")+" — "+item.note;out.appendChild(p);}
+  if(r.findings.length>40){const more=document.createElement("p");more.textContent="Showing the first 40 findings. Reduce tab size for full review.";out.appendChild(more);}
+ }).withFailureHandler(fail).runChangePreview($("b").value,$("p").value,$("k").value);
+});
+</script></body></html>
