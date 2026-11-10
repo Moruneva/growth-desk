@@ -1,5 +1,11 @@
 # Growth Desk
 
+## Commerce merchant pilot — product-template + AI skill (November 10, 2026)
+
+- **New market:** small-merchant catalog data preparation. [Open the trial digital kit](resources/catalog-prep-kit/README.md): fictional CSV template, copy-review skill, preflight guide and real public forum problem evidence.
+- **Evidence boundary:** public complaints do not prove a paying buyer; the kit is not an import file, store extension, or published digital sale. Shopify and WooCommerce native apps remain a future option conditional on actual usage and merchant demand.
+
+
 ## Sheets change preview prototype — November 10, 2026
 - Google Sheets editor sidebar Apps Script source, strictly local within the selected spreadsheet; no network calls, no edited cells.
 - **Not published to Google Workspace Marketplace, not installed or live-tested within an authorized Google Sheets editor account, not offered for sale.**
