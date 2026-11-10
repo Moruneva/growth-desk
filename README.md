@@ -1,5 +1,12 @@
 # Growth Desk
 
+## Sheets change preview prototype — November 10, 2026
+- Google Sheets editor sidebar Apps Script source, strictly local within the selected spreadsheet; no network calls, no edited cells.
+- **Not published to Google Workspace Marketplace, not installed or live-tested within an authorized Google Sheets editor account, not offered for sale.**
+- Read code and a fictional example: [Sheet Change Preview v0.1](resources/sheet-change-preview/README.md).
+- Offline source tests run through Node 22 Actions; JavaScript source-level checks are separate from real Apps Script authorization tests.
+
+
 Growth Desk is an independently developed, early-stage marketing workbench project by [Moruneva](https://moruneva.com).
 
 **Project status: repository initialized.** This repository does not yet contain a production release, hosted service, customer case study, or public beta. Initial source code and tests will be added after an independent rights, security, and release review.

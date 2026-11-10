@@ -1,0 +1,20 @@
+name: Sheets editor prototype offline tests
+on:
+  push:
+    paths:
+      - "resources/sheet-change-preview/**"
+      - ".github/workflows/sheet-change-preview.yml"
+  workflow_dispatch:
+jobs:
+  offline-contracts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run actual Core.gs test suite
+        run: node --test resources/sheet-change-preview/test.cjs
