@@ -1,5 +1,14 @@
 # Growth Desk
 
+## Free Shopify CSV preflight — quick independent trial
+
+**Try the live browser-local checker:** [Shopify CSV Import Preflight](https://moruneva.com/shopify-csv-preflight#csv-checker) (free; no account). Select **Load fictional example**, then **Check CSV locally** to review structural flags for duplicate variant options, blank columns and shared SKUs. Compare the results against Shopify's official free import guidance; no store connection, file submission or payment is needed.
+
+**If you have prepared a Shopify catalog update**, please share one non-identifying observation in [merchant trial discussion #2](https://github.com/Moruneva/growth-desk/issues/2) or by emailing [hello@moruneva.com](mailto:hello@moruneva.com?subject=Shopify%20CSV%20preflight%20research). What did the usual free workflow miss, or was it already enough? Please use wholly fictional data and do not share any customer export or credentials.
+
+*Evidence status: experimental local checker; no independently verified merchant use, repeat use, buyer acceptance or paid outcome. Not Shopify-certified, and it does not simulate a live-store import.*
+
+
 ## Commerce merchant pilot — product-template + AI skill (November 10, 2026)
 
 - **New market:** small-merchant catalog data preparation. [Open the trial digital kit](resources/catalog-prep-kit/README.md): fictional CSV template, copy-review skill, preflight guide and real public forum problem evidence.
