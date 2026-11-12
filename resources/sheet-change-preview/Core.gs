@@ -23,16 +23,19 @@ function analyzeSheetChange(beforeRows, proposedRows, keyHeader) {
     categories[kind] = (categories[kind] || 0) + 1;
   }
   function index(rows, hs) {
-    const map = new Map(), duplicates = new Set(), missing = [];
+    const map = new Map(), duplicates = new Set(), duplicateRows = new Map(), missing = [];
     const k = hs.indexOf(key);
     rows.slice(1).forEach((row, i) => {
       const number = i + 2;
       const v = String(row[k] == null ? "" : row[k]).trim();
       if (!v) { if (row.some(cell => String(cell == null ? "" : cell).trim() !== "")) missing.push(number); return; }
-      if (map.has(v)) duplicates.add(v);
-      else map.set(v, {number, values: row});
+      if (map.has(v)) {
+        duplicates.add(v);
+        if (!duplicateRows.has(v)) duplicateRows.set(v, [map.get(v).number]);
+        duplicateRows.get(v).push(number);
+      } else map.set(v, {number, values: row});
     });
-    return {map, duplicates, missing};
+    return {map, duplicates, duplicateRows, missing};
   }
   const b = index(beforeRows, bh), p = index(proposedRows, ph);
   b.missing.forEach(row => push("MISSING_KEY", row, null, key, "Original row cannot be matched."));
@@ -40,7 +43,10 @@ function analyzeSheetChange(beforeRows, proposedRows, keyHeader) {
   const duplicated = new Set([...b.duplicates, ...p.duplicates]);
   for (const k of duplicated) {
     const original = b.map.get(k), proposal = p.map.get(k);
-    push("DUPLICATE_KEY", original?.number, proposal?.number, key, "At least one tab repeats this key; do not infer a safe match.");
+    const repeatedRows = [];
+    if (b.duplicateRows.has(k)) repeatedRows.push("Original rows " + b.duplicateRows.get(k).join(", "));
+    if (p.duplicateRows.has(k)) repeatedRows.push("Proposed rows " + p.duplicateRows.get(k).join(", "));
+    push("DUPLICATE_KEY", original?.number, proposal?.number, key, "Repeated key in " + repeatedRows.join("; ") + "; resolve these rows before comparing. Keys and cell values are omitted.");
   }
   for (const field of bh) if (!ph.includes(field)) push("COLUMN_MISSING_IN_PROPOSAL", null, null, field, "Missing column is not proof it will be erased.");
   for (const field of ph) if (!bh.includes(field)) push("NEW_COLUMN_IN_PROPOSAL", null, null, field, "Column exists only in proposed tab.");

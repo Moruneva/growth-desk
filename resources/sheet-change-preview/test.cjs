@@ -44,3 +44,12 @@ test("empty and unchanged values handled distinctly",()=>{
   assert.equal(r.summary.byKind.FIELD_FILLED,1);
   assert.equal(r.summary.byKind.VALUE_CHANGED,1);
 });
+
+test("duplicate-key findings identify every affected row without exposing identifiers",()=>{
+  const r=compare([["SKU","Qty"],["secret-key","1"],["secret-key","2"]],[["SKU","Qty"],["secret-key","1"],["secret-key","3"]],"SKU");
+  const duplicate=r.findings.find(x=>x.kind==="DUPLICATE_KEY");
+  assert.ok(duplicate);
+  assert.match(duplicate.note,/Original rows 2, 3/);
+  assert.match(duplicate.note,/Proposed rows 2, 3/);
+  assert.doesNotMatch(JSON.stringify(r),/secret-key/);
+});
