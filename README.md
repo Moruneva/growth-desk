@@ -1,5 +1,18 @@
 # Growth Desk
 
+## Start here — free Sheet Change Preview (independent trial)
+
+**Compare two invented Google Sheets tabs in your browser — no signup, no installation, no data upload:** [Open the free fictional change preview](https://moruneva.com/sheet-change-preview-guide#sheet-demo).
+
+1. Select **Load fictional example**.
+2. Select **Compare locally**.
+3. Review the invented blank-price change, missing proposal row and new row. Compare with your normal **free** `COUNTIF` / `XLOOKUP` / filters or another no-cost checker before deciding if this tool adds value.
+4. **[Tell us what helped or what was worse — voluntary trial #3](https://github.com/Moruneva/growth-desk/issues/3)**. One non-identifying observation, including “my free method was better”, is useful. GitHub replies require an account; [email is optional](mailto:hello@moruneva.com?subject=Voluntary%20Sheet%20Change%20Preview%20trial).
+
+**Important distinction:** this link is a limited browser-only demonstration, not an installed Google Sheets extension. The [separate Apps Script sidebar prototype](resources/sheet-change-preview/README.md) remains source-tested only, not installed, Marketplace-published or verified with independent users. Maximum 500 data rows and 32 columns per tab. Never share real spreadsheets or customer identifiers.
+
+*Evidence status: public trial invitation only; independently verified first use, second use, merchant adoption, paid buyers and receipts are not established.*
+
 ## Free Shopify CSV preflight — quick independent trial
 
 **Try the live browser-local checker:** [Shopify CSV Import Preflight](https://moruneva.com/shopify-csv-preflight#csv-checker) (free; no account). Select **Load fictional example**, then **Check CSV locally** to review structural flags for duplicate variant options, blank columns and shared SKUs. Compare the results against Shopify's official free import guidance; no store connection, file submission or payment is needed.
@@ -25,7 +38,7 @@
 
 Growth Desk is an independently developed, early-stage marketing workbench project by [Moruneva](https://moruneva.com).
 
-**Project status: repository initialized.** This repository does not yet contain a production release, hosted service, customer case study, or public beta. Initial source code and tests will be added after an independent rights, security, and release review.
+**Project status: Growth Desk itself remains unreleased.** This repository already contains independently testable source prototypes and fictional-data examples. It has no released, hosted Growth Desk product, verified production customer integration, independent customer case study or paid business outcome; the separate free Moruneva web checkers linked here are experimental resources, not a Growth Desk SaaS release.
 
 The project aims to help small teams organize source-backed content drafts, prepare them for review, and learn from outcomes without relying on automatic posting or third-party marketing platforms.
 
