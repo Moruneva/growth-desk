@@ -1,5 +1,15 @@
 # Growth Desk
 
+## B2B integration first-use — free, one-click fictional outcome check
+
+**Try the [60-second fictional Business Central-style comparison](https://moruneva.com/outcome-reconciler?demo=business-central#tool).** The Moruneva Outcome Reconciler opens with three *invented* source, execution, and receipt snapshots already loaded and checked: one `success` row without a corresponding receipt, and one separate `skipped` execution. No copy/paste, sign-in, store credentials, real orders, SaaS account, or server-side customer-data processing.
+
+**Free alternative first:** [Microsoft's native Shopify connector troubleshooting guide](https://learn.microsoft.com/en-us/dynamics365/business-central/shopify/troubleshoot) explains its own Skipped Records and per-order error views. The [Moruneva walkthrough](https://moruneva.com/shopify-business-central-skipped-orders) explicitly compares that free route to the browser-only fictional CSV tool. Our checker is **not** a live Business Central or Shopify connector and cannot certify that every order is present or correct; its expected-source list can itself be incomplete.
+
+**Have relevant weekly work?** [Leave one optional, anonymous-to-the-business observation on our existing public trial issue #1](https://github.com/Moruneva/growth-desk/issues/1) (GitHub sign-in required), or [email Moruneva](mailto:hello@moruneva.com?subject=Voluntary%20Outcome%20Reconciliation%20Research). Tell us whether the built-in/free check already solves the problem, approximately how often you need it, and whether any independent receipt comparison could save work. No client data or real records, please. A reply is not a purchase, and no paid product or integration is available.
+
+*Evidence: source-tested synthetic cases; no independently verified external trial, repeat use, qualified buyer, checkout or revenue. This separately published Moruneva utility does not mean the Growth Desk product is released.*
+
 ## Personal learning — free From Saved to Tried experiment
 
 A separate consumer-product experiment from Moruneva's wider AI Solutions portfolio: [open From Saved to Tried](https://moruneva.com/from-saved-to-tried). Turn one saved idea into a 5–20-minute action, record your self-reported result, and export local records. No login, model inference, automated webpage extraction, payment, or cloud sync. Compare it honestly with your free bookmarks or notes, and [leave one voluntary, non-identifying observation in discussion #4](https://github.com/Moruneva/growth-desk/issues/4). There are **no independently verified first uses, repeat uses or paying users** yet.
