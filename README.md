@@ -1,5 +1,9 @@
 # Growth Desk
 
+## Personal learning — free From Saved to Tried experiment
+
+A separate consumer-product experiment from Moruneva's wider AI Solutions portfolio: [open From Saved to Tried](https://moruneva.com/from-saved-to-tried). Turn one saved idea into a 5–20-minute action, record your self-reported result, and export local records. No login, model inference, automated webpage extraction, payment, or cloud sync. Compare it honestly with your free bookmarks or notes, and [leave one voluntary, non-identifying observation in discussion #4](https://github.com/Moruneva/growth-desk/issues/4). There are **no independently verified first uses, repeat uses or paying users** yet.
+
 ## Start here — free Sheet Change Preview (independent trial)
 
 **Compare two invented Google Sheets tabs in your browser — no signup, no installation, no data upload:** [Open the free fictional change preview](https://moruneva.com/sheet-change-preview-guide#sheet-demo).
