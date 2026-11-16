@@ -2,7 +2,7 @@
 
 ## Film production: free offline shot handoff trial (November 16, 2026)
 
-**No footage upload or sign-in.** The [Shot Handoff Preflight offline preview](https://github.com/Moruneva/moruneva/blob/aria/shot-handoff-clean-integration-20261116/offline/shot-handoff-preflight-offline.html) is a single HTML file. Download it, open it locally, load the fictional spreadsheet example, compare the expected and delivered shots, and export a JSON or CSV report.
+**No footage upload or sign-in.** The [Shot Handoff Preflight offline preview](https://github.com/Moruneva/growth-desk/blob/main/offline/shot-handoff-preflight-offline.html) is a single HTML file. Download it, open it locally, load the fictional spreadsheet example, compare the expected and delivered shots, and export a JSON or CSV report.
 
 **Do you regularly verify handoffs?** [Try the voluntary 5–10-minute editor trial and report if your spreadsheet was better](https://github.com/Moruneva/growth-desk/issues/6). Use fictional or independently authorized non-identifying codes only—no footage, project names, client details or secrets. A GitHub account is only needed to comment, not to try the file; a short non-identifying email to hello@moruneva.com is also optional. No paid product is offered.
 
