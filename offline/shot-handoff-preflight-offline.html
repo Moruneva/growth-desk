@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-tX1AtKe/DBSVZO10G2l1kfhekvl7a7WMUcUabYJpCQU=' 'sha256-biEYqEtQIJenzHRyJuCLia8ddDZ5YEZrOHwScG9QHYE='; style-src 'sha256-VowpIDo8BPdVT7qCi+AMcoTGS4vm0EXg90nJAj2/4NU='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#f5f3ee">
+<title>Shot Handoff Preflight — Offline Preview | Moruneva</title>
+<meta name="description" content="Free offline-friendly shot handoff preflight: compare recorded revision, frame rate, dimensions, frame count and review labels. Export a portable JSON or CSV report; no footage upload.">
+
+
+
+
+
+<style>
+:root{--paper:#f5f3ee;--white:#fffefa;--ink:#20342b;--muted:#4f665a;--green:#225d48;--line:#d1dcd2;--warn:#fff0d3}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+a{color:var(--green);text-underline-offset:3px}a:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid #397d62;outline-offset:3px}
+.wrap{width:min(1100px,calc(100% - 36px));margin:auto}.hero{padding:58px 0 24px;max-width:840px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.13em;text-transform:uppercase;color:var(--green)}
+h1{font-size:clamp(37px,5.5vw,66px);letter-spacing:-.06em;line-height:1.1;margin:14px 0}h2{font-size:27px;letter-spacing:-.04em;line-height:1.25;margin:0 0 13px}p{color:var(--muted)}.lead{font-size:19px}
+.card{background:var(--white);border:1px solid var(--line);padding:26px;border-radius:15px;margin:21px 0}.note{background:var(--warn)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}label{font-size:14px;font-weight:750;display:block}
+textarea{display:block;width:100%;min-height:270px;resize:vertical;overflow-x:auto;white-space:pre;margin-top:8px;padding:13px;border:1px solid #a9bdae;border-radius:9px;background:white;color:var(--ink);font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}button{background:#1f4a38;color:#fff;border:1px solid #1f4a38;border-radius:8px;min-height:44px;padding:10px 16px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}button.secondary{background:#fff;color:#1f4a38}button:disabled{opacity:.48;cursor:not-allowed}
+#message{min-height:25px;font-size:14px}#message.error{color:#a13229;font-weight:700}#message.ok{color:#1d6347}.small{font-size:13px}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#eaf0e9}td{overflow-wrap:anywhere}th:nth-child(1){min-width:90px}th:nth-child(4){min-width:250px}#result[hidden]{display:none}
+footer{padding:27px 0 45px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+@media(max-width:740px){.hero{padding-top:35px}.grid{grid-template-columns:1fr}.card{padding:19px}textarea{min-height:210px}h1{font-size:clamp(38px,10vw,52px)}}
+/* A four-column report hides actionable text in a horizontal scroller on phones.
+   Keep the semantic table, but show each row as a labelled record on narrow screens. */
+@media(max-width:860px){
+  .table-wrap{overflow:visible}
+  .table-wrap table,.table-wrap tbody,.table-wrap tr,.table-wrap td{display:block;width:100%}
+  .table-wrap thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .table-wrap tbody{display:grid;gap:12px}
+  .table-wrap tr{border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .table-wrap td{display:grid;grid-template-columns:minmax(108px,32%) minmax(0,1fr);gap:12px;border:0;padding:10px 12px;overflow-wrap:anywhere}
+  .table-wrap td+td{border-top:1px solid var(--line)}
+  .table-wrap td::before{content:attr(data-label);font-size:12px;font-weight:750;color:var(--muted)}
+}
+@media(max-width:540px){
+  .table-wrap td{display:block}
+  .table-wrap td::before{display:block;margin-bottom:2px}
+}
+</style>
+
+</head>
+<body>
+<div class="wrap"><p class="eyebrow">Moruneva · Offline preview</p></div>
+<main class="wrap">
+<section class="hero"><span class="eyebrow">Creator tools · Free local preflight</span><h1>Are the right shots actually in the handoff?</h1><p class="lead">Compare two small shot lists—from JSON, CSV or pasted spreadsheet columns: what your edit expects and what the handoff says it contains. See missing scenes, different revisions and technical mismatches before another person tries the files.</p><p class="small">No login · No video files · Paste JSON, CSV or spreadsheet rows · Export JSON or CSV reports</p></section>
+<section class="card note"><h2>What this can verify</h2><p>This checks <strong>recorded metadata</strong> only. It cannot open or inspect footage, confirm that a person truly approved a cut, prove rights or find visual continuity mistakes. Treat every clean row as a checklist item for a human to review. Enter fictional or authorized, non-identifying shot codes only; never paste private project text, customer names, filenames, tokens or URLs.</p></section>
+<section class="card" aria-labelledby="entry-title"><h2 id="entry-title">1. Compare two manifests</h2><p>Each item needs <code>shot_id</code>, <code>revision</code>, <code>fps</code>, <code>width</code>, <code>height</code> and <code>frames</code>. The delivered list also needs <code>review_status</code>: <code>approved</code>, <code>pending</code> or <code>unknown</code>. Use <code>null</code> in JSON or leave spreadsheet cells blank for unknown numbers or frame rate. Paste a JSON array, CSV with a header row, or tab-separated cells copied from a spreadsheet; up to 80 shots per side.</p>
+<div class="grid"><label for="expected-json">Expected shot list<textarea id="expected-json" wrap="off" spellcheck="false" placeholder='[{"shot_id":"S01","revision":2,"fps":"24","width":1920,"height":1080,"frames":96}]' aria-describedby="entry-help"></textarea></label><label for="delivered-json">Delivered shot list<textarea id="delivered-json" wrap="off" spellcheck="false" placeholder='[{"shot_id":"S01","revision":1,"fps":"24","width":1920,"height":1080,"frames":96,"review_status":"pending"}]' aria-describedby="entry-help"></textarea></label></div>
+<p class="small">Spreadsheet header (expected): <code>shot_id,revision,fps,width,height,frames</code>. Add <code>,review_status</code> to the delivered header. Use the same columns separated by tabs when copying cells directly from a spreadsheet. The exported report CSV has different columns and is not a manifest input.</p>
+<p id="entry-help" class="small">Accepted frame rates: 23.976, 24, 25, 29.97, 30, 50, 59.94, 60 (strings). Shot IDs use up to 24 uppercase letters, digits, hyphens and underscores; duplicates and unrecognised fields are rejected.</p>
+<div class="actions"><button type="button" id="demo" class="secondary">Load JSON example</button><button type="button" id="demo-csv" class="secondary">Load spreadsheet example</button><button type="button" id="check">Check handoff</button><button type="button" id="clear" class="secondary">Clear inputs</button></div><p id="message" role="status" aria-live="polite">Load the example to see one match, one outdated revision and one missing shot.</p>
+</section>
+<section class="card" id="result" hidden aria-live="polite"><h2>2. Review the recorded differences</h2><p id="summary"></p><div class="table-wrap"><table><thead><tr><th scope="col">Shot</th><th scope="col">Expected → delivered</th><th scope="col">Review label</th><th scope="col">Action / uncertainty</th></tr></thead><tbody id="issues"></tbody></table></div>
+<div class="actions"><button type="button" id="download-json" disabled>Download JSON report</button><button type="button" id="download-csv" class="secondary" disabled>Download CSV report</button></div><p class="small">Files include only allowed shot codes, numeric specifications, review labels and diagnostic flags from these two lists. They are not signatures, production acceptance or rights clearance.</p></section>
+<section class="card"><h2>3. Decide whether to use the report</h2><p>If a spreadsheet already solves your handoff, keep using it. This comparison works only on the metadata you enter. Inspect the actual footage and approval records separately. Reports are saved locally when you choose to download them.</p></section>
+</main><footer class="wrap"><p>Moruneva · Offline preview. This file is an early, unverified product sample. No login or media upload is required.</p></footer>
+<script>/* Moruneva Shot Handoff Preflight v1: deterministic, browser-local core. */
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.MorunevaShotHandoff = api;
+})(typeof globalThis === 'object' ? globalThis : this, function () {
+  'use strict';
+  const INPUT_CONTRACT = 'moruneva.shot-handoff-input.v1';
+  const REPORT_CONTRACT = 'moruneva.shot-handoff-report.v1';
+  const FPS = ['23.976', '24', '25', '29.97', '30', '50', '59.94', '60'];
+  const MESSAGES = Object.freeze({
+    MISSING_DELIVERY: 'The expected shot is absent from the delivered list.',
+    EXTRA_DELIVERY: 'A delivered shot has no matching expected shot.',
+    UNKNOWN_REVISION: 'At least one revision number has not been recorded.',
+    OLDER_REVISION: 'The delivered revision is lower than the expected revision.',
+    DIFFERENT_REVISION: 'The delivered revision is newer than expected; confirm the change.',
+    UNKNOWN_SPEC: 'At least one technical specification is unknown on either side.',
+    FPS_DIFFERENCE: 'The recorded frame rates differ.',
+    SIZE_DIFFERENCE: 'The recorded frame dimensions differ.',
+    LENGTH_DIFFERENCE: 'The recorded frame counts differ.',
+    REVIEW_UNCONFIRMED: 'The delivery has no recorded approved review status.'
+  });
+  const allowedKeys = (item, keys) => Object.keys(item).every(key => keys.includes(key));
+  function fail(message) { throw new Error(message); }
+  function boundedInt(value, field, min, max) {
+    if (value === null) return null;
+    if (!Number.isSafeInteger(value) || value < min || value > max) fail(field + ' must be an integer between ' + min + ' and ' + max + ', or null.');
+    return value;
+  }
+  function normalise(item, side, index) {
+    if (!item || typeof item !== 'object' || Array.isArray(item)) fail(side + '[' + index + '] must be an object.');
+    const fields = ['shot_id', 'revision', 'fps', 'width', 'height', 'frames'];
+    if (side === 'delivered') fields.push('review_status');
+    if (!allowedKeys(item, fields) || fields.some(field => !Object.prototype.hasOwnProperty.call(item, field)))
+      fail(side + '[' + index + '] must contain exactly: ' + fields.join(', ') + '.');
+    if (typeof item.shot_id !== 'string' || !/^[A-Z0-9][A-Z0-9_-]{0,23}$/.test(item.shot_id))
+      fail(side + '[' + index + '].shot_id must be 1–24 uppercase letters, numbers, hyphens or underscores.');
+    if (item.fps !== null && (typeof item.fps !== 'string' || !FPS.includes(item.fps)))
+      fail(side + '[' + index + '].fps must be a supported frame-rate string or null.');
+    if (side === 'delivered' && !['approved', 'pending', 'unknown'].includes(item.review_status))
+      fail('delivered[' + index + '].review_status must be approved, pending or unknown.');
+    const clean = {
+      shot_id: item.shot_id,
+      revision: boundedInt(item.revision, 'revision', 1, 9999),
+      fps: item.fps,
+      width: boundedInt(item.width, 'width', 16, 8192),
+      height: boundedInt(item.height, 'height', 16, 8192),
+      frames: boundedInt(item.frames, 'frames', 1, 1000000)
+    };
+    if (side === 'delivered') clean.review_status = item.review_status;
+    return clean;
+  }
+  function manifest(input, side) {
+    if (!Array.isArray(input) || input.length > 80 || (side === 'expected' && input.length === 0))
+      fail(side + ' must be an array of ' + (side === 'expected' ? '1–80' : '0–80') + ' shots.');
+    const ids = new Set();
+    return input.map((raw, index) => {
+      const item = normalise(raw, side, index);
+      if (ids.has(item.shot_id)) fail('Duplicate shot ID in ' + side + ': ' + item.shot_id);
+      ids.add(item.shot_id);
+      return item;
+    });
+  }
+
+  // Spreadsheet paste is accepted only with the exact v1 header. No file paths,
+  // custom columns, or spreadsheet formulas can enter the report contract.
+  function parseDelimited(text, side) {
+    if (side !== 'expected' && side !== 'delivered') fail('Unknown manifest side.');
+    const source = text.charCodeAt(0) === 0xFEFF ? text.slice(1) : text;
+    const headerLine = source.split(/\r?\n/, 1)[0];
+    const separator = headerLine.includes('\t') ? '\t' : ',';
+    const columns = ['shot_id', 'revision', 'fps', 'width', 'height', 'frames'];
+    if (side === 'delivered') columns.push('review_status');
+    const rows = [];
+    let row = [], cell = '', quoted = false, closed = false;
+    for (let i = 0; i < source.length; i++) {
+      const ch = source[i];
+      if (quoted) {
+        if (ch === '"') {
+          if (source[i + 1] === '"') { cell += '"'; i++; }
+          else { quoted = false; closed = true; }
+        } else if (ch === '\r' || ch === '\n') fail('Spreadsheet input cannot contain multiline cells.');
+        else cell += ch;
+        continue;
+      }
+      if (ch === '"') {
+        if (cell !== '' || closed) fail('Malformed spreadsheet quotation.');
+        quoted = true;
+      } else if (ch === separator) {
+        row.push(cell);
+        cell = '';
+        closed = false;
+      } else if (ch === '\r' || ch === '\n') {
+        if (ch === '\r') {
+          if (source[i + 1] !== '\n') fail('Spreadsheet input must use LF or CRLF line endings.');
+          i++;
+        }
+        row.push(cell);
+        rows.push(row);
+        if (rows.length > 81) fail('Spreadsheet input exceeds the 80-shot limit.');
+        row = [];
+        cell = '';
+        closed = false;
+      } else {
+        if (closed) fail('Malformed spreadsheet quotation.');
+        cell += ch;
+      }
+    }
+    if (quoted) fail('Unclosed spreadsheet quotation.');
+    if (row.length || cell !== '' || rows.length === 0) rows.push([...row, cell]);
+    if (rows.length > 81) fail('Spreadsheet input exceeds the 80-shot limit.');
+    const header = rows.shift();
+    if (header.length !== columns.length || header.some((name, i) => name !== columns[i]))
+      fail(side + ' spreadsheet header must be exactly: ' + columns.join(separator) + '.');
+    const records = rows.map((values, index) => {
+      if (values.length !== columns.length) fail(side + ' spreadsheet row ' + (index + 2) + ' has the wrong number of columns.');
+      const item = {};
+      for (let col = 0; col < columns.length; col++) {
+        const name = columns[col], value = values[col];
+        item[name] = ['revision', 'width', 'height', 'frames'].includes(name)
+          ? (value === '' ? null : (/^(0|[1-9][0-9]*)$/.test(value) ? Number(value) : value))
+          : (name === 'fps' && value === '' ? null : value);
+      }
+      return item;
+    });
+    return manifest(records, side);
+  }
+  function analyze(input) {
+    if (!input || typeof input !== 'object' || Array.isArray(input) ||
+        !allowedKeys(input, ['contract_version', 'expected', 'delivered']) ||
+        Object.keys(input).length !== 3 || input.contract_version !== INPUT_CONTRACT)
+      fail('Expected the exact v1 input contract with expected and delivered arrays.');
+    const expected = manifest(input.expected, 'expected');
+    const delivered = manifest(input.delivered, 'delivered');
+    const deliveredById = new Map(delivered.map(item => [item.shot_id, item]));
+    const expectedIds = new Set(expected.map(item => item.shot_id));
+    const items = expected.map(target => {
+      const actual = deliveredById.get(target.shot_id) || null;
+      const flags = [];
+      if (!actual) flags.push('MISSING_DELIVERY');
+      else {
+        if (target.revision === null || actual.revision === null) flags.push('UNKNOWN_REVISION');
+        else if (actual.revision < target.revision) flags.push('OLDER_REVISION');
+        else if (actual.revision > target.revision) flags.push('DIFFERENT_REVISION');
+        if (['fps', 'width', 'height', 'frames'].some(key => target[key] === null || actual[key] === null)) flags.push('UNKNOWN_SPEC');
+        if (target.fps !== null && actual.fps !== null && target.fps !== actual.fps) flags.push('FPS_DIFFERENCE');
+        if (target.width !== null && actual.width !== null && target.width !== actual.width ||
+            target.height !== null && actual.height !== null && target.height !== actual.height) flags.push('SIZE_DIFFERENCE');
+        if (target.frames !== null && actual.frames !== null && target.frames !== actual.frames) flags.push('LENGTH_DIFFERENCE');
+        if (actual.review_status !== 'approved') flags.push('REVIEW_UNCONFIRMED');
+      }
+      return {shot_id: target.shot_id, expected: target, delivered: actual, flags};
+    });
+    for (const actual of delivered) {
+      if (!expectedIds.has(actual.shot_id)) items.push({shot_id: actual.shot_id, expected: null, delivered: actual, flags: ['EXTRA_DELIVERY']});
+    }
+    const matched = items.filter(item => item.flags.length === 0).length;
+    return {
+      contract_version: REPORT_CONTRACT,
+      input_contract_version: INPUT_CONTRACT,
+      summary: {
+        expected: expected.length, delivered: delivered.length, metadata_matched: matched,
+        needs_review: items.length - matched,
+        missing: items.filter(item => item.flags.includes('MISSING_DELIVERY')).length,
+        extra: items.filter(item => item.flags.includes('EXTRA_DELIVERY')).length
+      },
+      items,
+      limitations: ['No media files were opened or inspected.', 'Recorded approval is a user-entered label, not an authenticated sign-off.', 'No technical or creative acceptance is certified.']
+    };
+  }
+  function csv(report) {
+    if (!report || report.contract_version !== REPORT_CONTRACT || !Array.isArray(report.items)) fail('Invalid report contract.');
+    const rows = ['shot_id,expected_revision,delivered_revision,recorded_review,flag_codes'];
+    for (const item of report.items) {
+      if (typeof item.shot_id !== 'string' || !/^[A-Z0-9][A-Z0-9_-]{0,23}$/.test(item.shot_id) ||
+          !Array.isArray(item.flags) || item.flags.some(code => !Object.prototype.hasOwnProperty.call(MESSAGES, code))) fail('Unsafe report row.');
+      const integer = v => Number.isSafeInteger(v) && v >= 1 && v <= 9999 ? String(v) : '';
+      const review = ['approved', 'pending', 'unknown'].includes(item.delivered?.review_status) ? item.delivered.review_status : '';
+      rows.push([item.shot_id, integer(item.expected?.revision), integer(item.delivered?.revision), review, item.flags.join('|')].join(','));
+    }
+    return rows.join('\r\n') + '\r\n';
+  }
+  function sample() {
+    const shot = (id, revision, frames, status) => ({shot_id: id, revision, fps: '24', width: 1920, height: 1080, frames, ...(status ? {review_status: status} : {})});
+    return {contract_version: INPUT_CONTRACT,
+      expected: [shot('S01', 3, 96), shot('S02', 2, 120), shot('S03', 1, 72)],
+      delivered: [shot('S01', 3, 96, 'approved'), shot('S02', 1, 116, 'pending'), shot('S04', 1, 48, 'unknown')]};
+  }
+  return Object.freeze({INPUT_CONTRACT, REPORT_CONTRACT, FPS, MESSAGES, manifest, parseDelimited, analyze, csv, sample});
+});
+</script>
+<script>(function () {
+  'use strict';
+  const core = window.MorunevaShotHandoff;
+  if (!core) return;
+  const byId = id => document.getElementById(id);
+  const expected = byId('expected-json');
+  const delivered = byId('delivered-json');
+  const message = byId('message');
+  const result = byId('result');
+  const summary = byId('summary');
+  const tbody = byId('issues');
+  const downloads = [byId('download-json'), byId('download-csv')];
+  let currentReport = null;
+
+  function invalidate() {
+    currentReport = null;
+    result.hidden = true;
+    downloads.forEach(button => { button.disabled = true; });
+    message.textContent = 'Inputs changed. Run the check again before exporting.';
+    message.className = '';
+  }
+  function parse(text, label, side) {
+    if (text.length > 60000) throw new Error(label + ' is too large (maximum 60,000 characters).');
+    const trimmed = text.trimStart();
+    if (trimmed.startsWith('[') || trimmed.startsWith('{')) {
+      let value;
+      try { value = JSON.parse(text); } catch (_) { throw new Error(label + ' is not valid JSON.'); }
+      if (!Array.isArray(value)) throw new Error(label + ' must be a JSON array.');
+      return value;
+    }
+    return core.parseDelimited(text, side);
+  }
+  function exampleCsv(records, side) {
+    const columns = ['shot_id', 'revision', 'fps', 'width', 'height', 'frames'];
+    if (side === 'delivered') columns.push('review_status');
+    return [columns.join(','), ...records.map(item => columns.map(name => item[name] === null ? '' : String(item[name])).join(','))].join('\n') + '\n';
+  }
+  function textCell(row, label, value) {
+    const cell = document.createElement('td');
+    cell.setAttribute('data-label', label);
+    cell.textContent = value;
+    row.appendChild(cell);
+  }
+  function version(value) { return value === null || value === undefined ? 'unknown' : String(value); }
+  function render(report) {
+    const s = report.summary;
+    summary.textContent = s.metadata_matched + ' metadata-matched · ' + s.needs_review + ' to review · ' + s.missing + ' missing · ' + s.extra + ' unplanned. Recorded metadata only; no file was examined.';
+    tbody.replaceChildren();
+    for (const item of report.items) {
+      const tr = document.createElement('tr');
+      textCell(tr, 'Shot', item.shot_id);
+      textCell(tr, 'Expected → delivered', version(item.expected?.revision) + ' → ' + version(item.delivered?.revision));
+      textCell(tr, 'Review label', item.delivered?.review_status || 'missing');
+      const details = item.flags.length ? item.flags.map(flag => core.MESSAGES[flag]).join(' ') : 'Recorded fields match; independently inspect the media and approval record.';
+      textCell(tr, 'Action / uncertainty', details);
+      tbody.appendChild(tr);
+    }
+    result.hidden = false;
+    downloads.forEach(button => { button.disabled = false; });
+    message.textContent = 'Local comparison completed. You can download a JSON or CSV handoff report.';
+    message.className = 'ok';
+  }
+  function download(content, filename, mime) {
+    if (!currentReport) return;
+    const blob = new Blob([content], {type: mime});
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+  byId('demo').addEventListener('click', () => {
+    const example = core.sample();
+    expected.value = JSON.stringify(example.expected, null, 2);
+    delivered.value = JSON.stringify(example.delivered, null, 2);
+    invalidate();
+    message.textContent = 'Three fictional expected shots and three fictional deliveries loaded. Run the check.';
+  });
+  byId('demo-csv').addEventListener('click', () => {
+    const example = core.sample();
+    expected.value = exampleCsv(example.expected, 'expected');
+    delivered.value = exampleCsv(example.delivered, 'delivered');
+    invalidate();
+    message.textContent = 'Fictional spreadsheet rows loaded. Paste CSV or tab-separated rows with the same headers, then run the check.';
+  });
+  byId('clear').addEventListener('click', () => {
+    expected.value = '';
+    delivered.value = '';
+    invalidate();
+    message.textContent = 'Both local input fields cleared.';
+  });
+  expected.addEventListener('input', invalidate);
+  delivered.addEventListener('input', invalidate);
+  byId('check').addEventListener('click', () => {
+    invalidate();
+    try {
+      currentReport = core.analyze({contract_version: core.INPUT_CONTRACT, expected: parse(expected.value, 'Expected list', 'expected'), delivered: parse(delivered.value, 'Delivered list', 'delivered')});
+      render(currentReport);
+    } catch (error) {
+      message.textContent = error.message;
+      message.className = 'error';
+    }
+  });
+  byId('download-json').addEventListener('click', () => download(JSON.stringify(currentReport, null, 2) + '\n', 'shot-handoff-report-v1.json', 'application/json'));
+  byId('download-csv').addEventListener('click', () => download(core.csv(currentReport), 'shot-handoff-report-v1.csv', 'text/csv;charset=utf-8'));
+  downloads.forEach(button => { button.disabled = true; });
+})();
+</script>
+</body></html>
