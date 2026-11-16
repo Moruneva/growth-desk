@@ -1,5 +1,13 @@
 # Growth Desk
 
+## Film production: free offline shot handoff trial (November 16, 2026)
+
+**No footage upload or sign-in.** The [Shot Handoff Preflight offline preview](https://github.com/Moruneva/moruneva/blob/aria/shot-handoff-clean-integration-20261116/offline/shot-handoff-preflight-offline.html) is a single HTML file. Download it, open it locally, load the fictional spreadsheet example, compare the expected and delivered shots, and export a JSON or CSV report.
+
+**Do you regularly verify handoffs?** [Try the voluntary 5–10-minute editor trial and report if your spreadsheet was better](https://github.com/Moruneva/growth-desk/issues/6). Use fictional or independently authorized non-identifying codes only—no footage, project names, client details or secrets. A GitHub account is only needed to comment, not to try the file; a short non-identifying email to hello@moruneva.com is also optional. No paid product is offered.
+
+*Evidence: automated local-file Chromium checks at four sizes, plus screenshot review. No independently verified editor first use or repeat use; the public website release has not passed its separate security gate.*
+
 ## B2B integration first-use — free, one-click fictional outcome check
 
 **Try the [60-second fictional Business Central-style comparison](https://moruneva.com/outcome-reconciler?demo=business-central#tool).** The Moruneva Outcome Reconciler opens with three *invented* source, execution, and receipt snapshots already loaded and checked: one `success` row without a corresponding receipt, and one separate `skipped` execution. No copy/paste, sign-in, store credentials, real orders, SaaS account, or server-side customer-data processing.
