@@ -1,5 +1,11 @@
 # Growth Desk
 
+## Digital goods: free offline payment-to-delivery **record** crosscheck (November 17, 2026)
+
+**No payment connection or data upload.** [Download the offline Digital Delivery Crosscheck preview](offline/digital-delivery-crosscheck-offline.html), open the HTML file locally, select **Load fictional example**, compare the invented payment/delivery lists and **Download CSV review report**. This flags disagreements between user-supplied records; **it cannot verify an actual payment, customer entitlement, successful delivery, or refund status against PayPal or any other provider**. Never fulfill an order based solely on this tool. Do not enter customer records, transaction IDs, credentials or private financial exports.
+
+**Does it outperform your existing free spreadsheet or processor report?** [Try the optional 3–5-minute fictional-record trial and report failures too](https://github.com/Moruneva/growth-desk/issues/7). An account is needed only to comment (optional non-identifying email alternative); the file itself needs no sign-in. Source contract tests 19/19 and automated real Chromium checks at four widths passed ([run #44062054368](https://github.com/Moruneva/moruneva/actions/runs/44062054368)). **No verified independent first use, buyer, payment or production integration**; formal Moruneva website deployment is separately on hold. This is a free experiment, not an offered paid product.
+
 ## Film production: free offline shot handoff trial (November 16, 2026)
 
 **No footage upload or sign-in.** The [Shot Handoff Preflight offline preview](https://github.com/Moruneva/growth-desk/blob/main/offline/shot-handoff-preflight-offline.html) is a single HTML file. Download it, open it locally, load the fictional spreadsheet example, compare the expected and delivered shots, and export a JSON or CSV report.
