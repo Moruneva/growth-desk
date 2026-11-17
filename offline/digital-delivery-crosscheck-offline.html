@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-p0gU0XyVBnyxBVvKc663mQR/VLUa0RMyn8PNzBcAnc4='; style-src 'sha256-vH/IwdIICOZ2T+JFG/uV1OCTtrJQIMnbw605VpLRnho='; connect-src 'none'; img-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f5f3ee">
+  <title>Digital Delivery Crosscheck — Offline Preview | Moruneva</title>
+  <meta name="description" content="A free single-file offline preview that compares two fictional payment and delivery CSV lists. No payment verification, account connection or upload.">
+  
+  <style>
+    :root{color-scheme:light;--ink:#1f3128;--muted:#51645a;--pine:#204e3c;--paper:#f5f3ee;--line:#ced9cc;--cream:#fffefa;--mint:#e7efe8;--amber:#7f4915}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}a{color:var(--pine);text-underline-offset:4px}.wrap{width:min(1120px,calc(100% - 38px));margin:auto}
+    header{padding:22px 0;border-bottom:1px solid var(--line)}.mn-shell-header{padding:0}.brand{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--pine);text-decoration:none}.nav-note{margin-left:14px;color:var(--muted);font-size:12px}.hero{display:grid;grid-template-columns:1.5fr .75fr;gap:40px;align-items:center;padding:60px 0 46px}.eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;color:#397354}h1{font-size:clamp(39px,5.5vw,69px);line-height:1.08;letter-spacing:-.06em;margin:16px 0 20px}h2{font-size:clamp(25px,3vw,37px);letter-spacing:-.045em;line-height:1.22;margin:0 0 14px}h3{margin:0 0 8px;font-size:18px}.lede{font-size:18px;max-width:700px;color:var(--muted)}.hero-aside{background:#173f32;color:#e8f4e8;padding:30px;border-radius:20px}.hero-aside strong{display:block;font-size:22px;line-height:1.3}.hero-aside p{color:#c7dccd;font-size:14px;margin-bottom:0}.pill{display:inline-block;border-radius:999px;padding:5px 12px;background:#e5eee6;color:#24543c;font:800 11px/1.5 ui-monospace,monospace;letter-spacing:.04em}.warning{background:#fff2d8;border:1px solid #d9b98b;color:#664313;border-radius:12px;padding:17px 21px;line-height:1.6;margin:0 0 29px}.warning strong{display:block}
+    .tool{background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:0 18px 60px #193f2910}.tool-head{display:flex;align-items:start;justify-content:space-between;gap:20px}.tool-head p{margin:0 0 20px;color:var(--muted);max-width:670px}.inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.field label{display:block;font-weight:800}.field small{display:block;color:var(--muted);margin:7px 0 12px;font-size:12px}textarea{width:100%;min-height:228px;border:1px solid #b9cabc;border-radius:11px;background:white;color:var(--ink);resize:vertical;padding:15px;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre;overflow-x:auto}code{overflow-wrap:anywhere;background:#e8eee7;border-radius:4px;padding:2px 4px;font-size:.9em}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}button{border:1px solid #b2c6b4;border-radius:10px;background:white;color:var(--ink);font:700 14px/1.25 inherit;font-size:14px;font-weight:760;padding:13px 20px;min-height:45px;cursor:pointer}button.primary{background:#173f32;color:white;border-color:#173f32}button:hover{border-color:#286a4c}button:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #579a73;outline-offset:3px}#form-note{color:#6e491b;min-height:26px;font-size:13px;margin-top:15px}.result{border-top:1px solid var(--line);margin-top:25px;padding-top:26px}.result[hidden]{display:none}.result p{color:var(--muted)}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;min-width:750px}th,td{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:800;background:var(--mint)}td:nth-child(3){font-family:ui-monospace,monospace;font-size:12px}td:nth-child(2){font-weight:800;text-transform:uppercase}td{overflow-wrap:anywhere}
+    button:disabled{opacity:.52;cursor:not-allowed}.guide{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;padding:68px 0}.guide p,.guide li{color:var(--muted)}.guide li{margin:0 0 10px}.guide .card{background:var(--mint);padding:27px;border-radius:16px;margin-bottom:18px}.guide .card p{margin-bottom:0}.guide .card h3{font-size:19px}.guide ul{padding-left:21px}.schema{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:white}.schema h3{margin-bottom:9px}.schema p{font-size:13px;overflow-wrap:anywhere}.schema code{font-size:11px}.fine{font-size:12px;color:var(--muted)}footer{padding:25px 0 42px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+    @media(max-width:820px){.hero,.guide{grid-template-columns:1fr;gap:24px}.hero{padding-top:42px}.guide{padding-top:46px}.inputs{grid-template-columns:1fr}.tool-head{display:block}.tool{padding:22px}.nav-note{display:block;margin-left:0}textarea{min-height:160px}}
+    @media(max-width:620px){.table-wrap{overflow-x:visible}table,tbody{display:block;min-width:0;width:100%}thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}tbody tr{display:block;margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}tbody td{display:block;border:0;padding:7px 12px;line-height:1.5}tbody td:first-child{padding-top:13px}tbody td:last-child{padding-bottom:13px}tbody td::before{display:block;margin-bottom:3px;color:var(--muted);font:700 10px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;text-transform:uppercase;letter-spacing:.07em}tbody td:nth-child(1)::before{content:"Transaction ID"}tbody td:nth-child(2)::before{content:"Review level"}tbody td:nth-child(3)::before{content:"Finding"}tbody td:nth-child(4)::before{content:"Reason"}}
+  </style>
+  
+</head>
+<body>
+<div class="wrap"><p class="eyebrow">Moruneva · Offline preview</p></div>
+<main class="wrap">
+  <section class="hero" aria-labelledby="main-title">
+    <div><div class="eyebrow">Digital commerce / Delivery evidence</div><h1 id="main-title">A payment exists.<br>Was the file delivered?</h1><p class="lede">Compare your payment and delivery records to identify missing fulfillment, duplicate IDs, amount discrepancies, or items marked delivered while payment is still pending.</p><span class="pill">Free offline preview / No account connection</span></div>
+    <aside class="hero-aside"><strong>Two records.<br>One unresolved question.</strong><p>A green payment row is not a receipt for digital access. A delivery row is not proof that the money settled. Keep both claims separate.</p></aside>
+  </section>
+  <div class="warning"><strong>This tool cannot verify a payment.</strong> Both inputs must be independently obtained and manually normalized by the merchant. A matching pair of rows is only a consistency check; open your actual payment provider and delivery system before making any fulfillment or refund decision. Never enter passwords, API keys, payer identity information, or raw customer details.</div>
+  <section class="tool" aria-labelledby="tool-title">
+    <div class="tool-head"><div><h2 id="tool-title">Compare two CSV lists</h2><p>Paste only synthetic IDs or minimal merchant-side transaction references. Processing runs in your browser without upload or contacting an external service. The optional review report downloads only when you choose it.</p></div></div>
+    <form id="crosscheck-form">
+      <div class="inputs">
+        <div class="field"><label for="payment-data">1. Payment records</label><small>Exact header: <code>transaction_id,status,amount,currency</code>. Allowed statuses: completed, pending, denied, refunded, partially_refunded.</small><textarea id="payment-data" spellcheck="false" autocomplete="off" aria-describedby="form-note" placeholder="transaction_id,status,amount,currency&#10;ORDER-001,completed,299,TWD"></textarea></div>
+        <div class="field"><label for="delivery-data">2. Delivery records</label><small>Exact header: <code>transaction_id,delivery_id,delivery_status,amount,currency</code>. Allowed statuses: delivered, pending, revoked.</small><textarea id="delivery-data" spellcheck="false" autocomplete="off" aria-describedby="form-note" placeholder="transaction_id,delivery_id,delivery_status,amount,currency&#10;ORDER-001,FILE-001,delivered,299,TWD"></textarea></div>
+      </div>
+      <div class="actions"><button type="submit" class="primary">Compare records</button><button id="use-example" type="button">Load fictional examples</button><button id="download-report" type="button" disabled>Download CSV review report</button><button id="clear-data" type="button">Clear inputs</button></div>
+      <p id="form-note" role="status" aria-live="polite">Use the fictional sample to test the review flags. No data is uploaded.</p>
+    </form>
+    <section id="results" class="result" aria-labelledby="results-title" hidden><h2 id="results-title">Local comparison results</h2><p id="result-summary"></p><div class="table-wrap"><table><thead><tr><th scope="col">Transaction ID</th><th scope="col">Review level</th><th scope="col">Finding</th><th scope="col">Reason</th></tr></thead><tbody id="result-rows"></tbody></table></div><p class="fine">No finding authorizes shipment, access revocation, or a refund. Check original systems and human-approved policy.</p></section>
+  </section>
+  <section class="guide" aria-label="How to use and limits">
+    <div><div class="eyebrow">A five-minute review</div><h2>What to check before handing over digital access</h2><ol><li>Retrieve the transaction state from your actual merchant account. Export a report if available; do not rely on a checkout screenshot.</li><li>Confirm the order identifier, currency and amount. Convert the report into the four-column payment schema. A processor status must be mapped carefully, not guessed.</li><li>Take the delivery confirmation from the service that actually grants access, then convert it to the separate five-column delivery schema.</li><li>Compare the rows locally. Review every flagged transaction against the original sources, especially refunds, duplicates and pending payments.</li><li>Record the human decision in your own secure order system. This prototype stores no audit trail and does not deliver files.</li></ol><p class="fine">Not compatible with raw provider CSV formats without manual mapping. Multiple legitimate items or partial deliveries require a fuller order-line model; this version deliberately flags multiple rows for review.</p></div>
+    <div><div class="card"><h3>What a “match” actually means</h3><p>One manually entered row says completed; another says delivered; the IDs, currency and amount agree. This cannot establish that the payment settled, that a file opens, or that the purchaser is entitled to it.</p></div><div class="schema"><h3>Failure modes worth catching</h3><p><code>COMPLETED_NOT_DELIVERED_IN_LOG</code> — paid in the supplied list, no delivery receipt.</p><p><code>DELIVERED_BEFORE_COMPLETION</code> — access appears granted while payment is pending or denied.</p><p><code>REFUND_AFTER_DELIVERY_REVIEW</code> — review whether access remains appropriate after refund.</p><p><code>DUPLICATE_PAYMENT_RECORD</code> / <code>MULTIPLE_DELIVERY_RECORDS</code> — conflicting or repeat rows must be examined.</p></div></div>
+  </section>
+</main>
+<footer class="wrap"><p>Moruneva · Free offline preview · No payment verification, customer-data upload, legal approval, or automatic delivery. Compare with your existing free spreadsheet before relying on this research tool.</p></footer>
+<script>/* Moruneva — Digital delivery crosscheck research prototype.
+ * Purely local comparison of two manually normalized CSV exports.
+ * Never treats a pasted status as verified by PayPal or another processor. */
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  if (root) root.MorunevaDeliveryCrosscheck = api;
+  if (typeof document !== 'undefined') {
+    const start = () => api.mount(document);
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
+    else start();
+  }
+})(typeof window !== 'undefined' ? window : null, function () {
+  'use strict';
+  const MAX_BYTES = 1024 * 1024;
+  const MAX_ROWS = 10000;
+  const PAYMENT_STATES = new Set(['completed', 'pending', 'denied', 'refunded', 'partially_refunded']);
+  const DELIVERY_STATES = new Set(['delivered', 'pending', 'revoked']);
+  const PAYMENT_COLUMNS = ['transaction_id', 'status', 'amount', 'currency'];
+  const DELIVERY_COLUMNS = ['transaction_id', 'delivery_id', 'delivery_status', 'amount', 'currency'];
+
+  function parseCSV(source) {
+    if (typeof source !== 'string') throw Error('CSV input must be text.');
+    if (source.length > MAX_BYTES) throw Error('Each CSV is limited to 1 MB.');
+    const text = source.replace(/^\uFEFF/, '');
+    const rows = [];
+    let row = [];
+    let value = '';
+    let quoted = false;
+    let endedQuote = false;
+    let atStart = true;
+    function cell() {
+      row.push(value);
+      value = '';
+      endedQuote = false;
+      atStart = true;
+    }
+    function line() {
+      cell();
+      if (row.some(v => v.trim() !== '')) rows.push(row);
+      row = [];
+      if (rows.length > MAX_ROWS + 1) throw Error('Each CSV is limited to 10,000 data rows.');
+    }
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      if (quoted) {
+        if (c === '"' && text[i + 1] === '"') { value += '"'; i++; }
+        else if (c === '"') { quoted = false; endedQuote = true; }
+        else value += c;
+      } else if (c === '"' && atStart) {
+        quoted = true;
+        atStart = false;
+      } else if (c === ',') {
+        cell();
+      } else if (c === '\n' || c === '\r') {
+        if (c === '\r' && text[i + 1] === '\n') i++;
+        line();
+      } else if (endedQuote && (c === ' ' || c === '\t')) {
+        // Permit whitespace after a closed quoted cell.
+      } else if (endedQuote || c === '"') {
+        throw Error('Invalid CSV quoting near character ' + (i + 1) + '.');
+      } else {
+        value += c;
+        atStart = false;
+      }
+    }
+    if (quoted) throw Error('Unclosed quoted CSV field.');
+    if (value || row.length || endedQuote) line();
+    if (!rows.length) throw Error('CSV has no header.');
+    return rows;
+  }
+
+  function parseTable(source, expected, label) {
+    const rows = parseCSV(source);
+    const headers = rows[0].map(x => x.trim().toLowerCase());
+    if (headers.length !== expected.length || expected.some((name, i) => headers[i] !== name)) {
+      throw Error(label + ' CSV must have exactly these columns, in order: ' + expected.join(', '));
+    }
+    return rows.slice(1).map((cells, idx) => {
+      if (cells.length !== expected.length) throw Error(label + ' row ' + (idx + 2) + ' has the wrong number of columns.');
+      return Object.fromEntries(expected.map((key, i) => [key, cells[i].trim()]));
+    });
+  }
+
+  function parseAmount(value, label) {
+    if (!/^(?:0|[1-9]\d{0,11})(?:\.\d{1,2})?$/.test(value)) throw Error(label + ' must be a positive decimal with up to 2 places.');
+    const [whole, decimal = ''] = value.split('.');
+    const cents = BigInt(whole) * 100n + BigInt(decimal.padEnd(2, '0') || '0');
+    if (cents === 0n) throw Error(label + ' must be greater than zero.');
+    return cents;
+  }
+
+  function normalizePayment(record, row) {
+    if (!record.transaction_id || record.transaction_id.length > 120) throw Error('Payment row ' + row + ' has an invalid transaction_id.');
+    const status = record.status.toLowerCase();
+    if (!PAYMENT_STATES.has(status)) throw Error('Payment row ' + row + ' has an unknown status; map it manually before comparing.');
+    const currency = record.currency.toUpperCase();
+    if (!/^[A-Z]{3}$/.test(currency)) throw Error('Payment row ' + row + ' has an invalid currency.');
+    return { transactionId: record.transaction_id, status, amountMinor: parseAmount(record.amount, 'Payment row ' + row + ' amount'), currency };
+  }
+
+  function normalizeDelivery(record, row) {
+    if (!record.transaction_id || record.transaction_id.length > 120) throw Error('Delivery row ' + row + ' has an invalid transaction_id.');
+    if (!record.delivery_id || record.delivery_id.length > 120) throw Error('Delivery row ' + row + ' has an invalid delivery_id.');
+    const status = record.delivery_status.toLowerCase();
+    if (!DELIVERY_STATES.has(status)) throw Error('Delivery row ' + row + ' has an unknown delivery_status.');
+    const currency = record.currency.toUpperCase();
+    if (!/^[A-Z]{3}$/.test(currency)) throw Error('Delivery row ' + row + ' has an invalid currency.');
+    return { transactionId: record.transaction_id, deliveryId: record.delivery_id, status, amountMinor: parseAmount(record.amount, 'Delivery row ' + row + ' amount'), currency };
+  }
+
+  function indexBy(records, key) {
+    const map = new Map();
+    for (const record of records) {
+      const id = record[key];
+      if (!map.has(id)) map.set(id, []);
+      map.get(id).push(record);
+    }
+    return map;
+  }
+
+  function crosscheck(paymentCSV, deliveryCSV) {
+    const payments = parseTable(paymentCSV, PAYMENT_COLUMNS, 'Payments').map((x, i) => normalizePayment(x, i + 2));
+    const deliveries = parseTable(deliveryCSV, DELIVERY_COLUMNS, 'Deliveries').map((x, i) => normalizeDelivery(x, i + 2));
+    if (payments.length === 0 && deliveries.length === 0) throw Error('Enter at least one data row.');
+    const byPayment = indexBy(payments, 'transactionId');
+    const byDelivery = indexBy(deliveries, 'transactionId');
+    const deliveryIds = indexBy(deliveries, 'deliveryId');
+    const keys = new Set([...byPayment.keys(), ...byDelivery.keys()]);
+    const findings = [];
+    function flag(transactionId, code, level, detail) { findings.push({ transactionId, code, level, detail }); }
+    for (const id of [...keys].sort()) {
+      const paid = byPayment.get(id) || [];
+      const shipped = byDelivery.get(id) || [];
+      if (paid.length > 1) { flag(id, 'DUPLICATE_PAYMENT_RECORD', 'review', 'More than one payment row uses this ID. Resolve duplicates before evaluating fulfillment.'); continue; }
+      if (shipped.length > 1) { flag(id, 'MULTIPLE_DELIVERY_RECORDS', 'review', 'Multiple delivery records share this transaction ID. Check whether these are legitimate resends.'); continue; }
+      const p = paid[0];
+      const d = shipped[0];
+      if (!p) { flag(id, 'DELIVERY_WITHOUT_PAYMENT_RECORD', 'review', 'The imported payment list has no matching transaction. Check the merchant account independently.'); continue; }
+      if (!d) {
+        if (p.status === 'completed') flag(id, 'COMPLETED_NOT_DELIVERED_IN_LOG', 'review', 'Completed in the imported payment list; no corresponding delivery log row.');
+        else flag(id, 'NO_DELIVERY_IN_LOG', 'info', 'No delivery row; payment status is ' + p.status + '.');
+        continue;
+      }
+      if (deliveryIds.get(d.deliveryId).length > 1) { flag(id, 'DUPLICATE_DELIVERY_ID', 'review', 'The same delivery ID appears on multiple rows or transactions.'); continue; }
+      if (p.currency !== d.currency || p.amountMinor !== d.amountMinor) { flag(id, 'AMOUNT_OR_CURRENCY_MISMATCH', 'review', 'Payment and delivery records disagree about amount or currency.'); continue; }
+      if (p.status === 'completed') {
+        if (d.status === 'delivered') flag(id, 'RECORDS_MATCH_UNVERIFIED', 'match', 'Both imported records agree. The payment and access have NOT been independently verified.');
+        else flag(id, 'DELIVERY_NOT_CONFIRMED', 'review', 'Payment completed in imported list, but delivery is ' + d.status + '.');
+      } else if (p.status === 'refunded' || p.status === 'partially_refunded') {
+        flag(id, d.status === 'delivered' ? 'REFUND_AFTER_DELIVERY_REVIEW' : 'REFUND_REVIEW', 'review', 'Payment is ' + p.status + '; manually review access and any refund policy.');
+      } else if (d.status === 'delivered') {
+        flag(id, 'DELIVERED_BEFORE_COMPLETION', 'review', 'Delivery marked delivered while payment is ' + p.status + '.');
+      } else {
+        flag(id, 'NOT_READY_FOR_DELIVERY', 'info', 'Payment is ' + p.status + ', delivery is ' + d.status + '.');
+      }
+    }
+    const counts = findings.reduce((acc, f) => { acc[f.level] = (acc[f.level] || 0) + 1; return acc; }, { review: 0, match: 0, info: 0 });
+    return { counts, findings, records: { payments: payments.length, deliveries: deliveries.length }, disclaimer: 'Manual CSV comparison only. This output does not confirm actual settlement, payer identity, fulfillment, refund validity, or entitlement.' };
+  }
+
+  function reportCSV(report) {
+    if (!report || !Array.isArray(report.findings)) throw Error('Generate a comparison before exporting a report.');
+    const headers = ['transaction_id', 'review_level', 'finding_code', 'reason', 'evidence_status'];
+    function cell(value) {
+      const input = String(value);
+      // Exported IDs may come from user input. Neutralize spreadsheet formulas, even after whitespace.
+      const safe = /^[\s\uFEFF]*[=+@-]/.test(input) ? "'" + input : input;
+      return '"' + safe.replace(/"/g, '""') + '"';
+    }
+    return '\uFEFF' + headers.join(',') + '\r\n' + report.findings.map(f =>
+      [f.transactionId, f.level, f.code, f.detail, 'UNVERIFIED_RECORDS_ONLY'].map(cell).join(',')
+    ).join('\r\n') + '\r\n';
+  }
+
+  function mount(doc) {
+    const form = doc.getElementById('crosscheck-form');
+    if (!form) return;
+    const paymentBox = doc.getElementById('payment-data');
+    const deliveryBox = doc.getElementById('delivery-data');
+    const note = doc.getElementById('form-note');
+    const results = doc.getElementById('results');
+    const summary = doc.getElementById('result-summary');
+    const tbody = doc.getElementById('result-rows');
+    const exportButton = doc.getElementById('download-report');
+    let lastReport = null;
+    function invalidateReport() {
+      lastReport = null;
+      if (exportButton) exportButton.disabled = true;
+      results.hidden = true;
+    }
+    const examples = {
+      payments: 'transaction_id,status,amount,currency\nORDER-101,completed,299,TWD\nORDER-102,completed,499,TWD\nORDER-103,pending,200,TWD\nORDER-104,refunded,350,TWD\nORDER-105,completed,650,TWD',
+      deliveries: 'transaction_id,delivery_id,delivery_status,amount,currency\nORDER-101,SHIP-101,delivered,299,TWD\nORDER-103,SHIP-103,delivered,200,TWD\nORDER-104,SHIP-104,delivered,350,TWD\nORDER-105,SHIP-105,delivered,600,TWD\nORDER-999,SHIP-999,delivered,250,TWD'
+    };
+    doc.getElementById('use-example').addEventListener('click', () => { paymentBox.value = examples.payments; deliveryBox.value = examples.deliveries; paymentBox.scrollLeft = 0; deliveryBox.scrollLeft = 0; note.textContent = 'Synthetic sample data loaded. No actual payments are represented.'; invalidateReport(); });
+    doc.getElementById('clear-data').addEventListener('click', () => { paymentBox.value = ''; deliveryBox.value = ''; note.textContent = 'All input cleared from this page.'; invalidateReport(); });
+    for (const field of [paymentBox, deliveryBox]) field.addEventListener('input', invalidateReport);
+    if (exportButton) exportButton.addEventListener('click', () => {
+      if (!lastReport) return;
+      const win = doc.defaultView;
+      const blob = new win.Blob([reportCSV(lastReport)], { type: 'text/csv;charset=utf-8' });
+      const href = win.URL.createObjectURL(blob);
+      const anchor = doc.createElement('a');
+      anchor.href = href;
+      anchor.download = 'digital-delivery-crosscheck-review.csv';
+      anchor.click();
+      win.setTimeout(() => win.URL.revokeObjectURL(href), 1000);
+    });
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      invalidateReport();
+      try {
+        const report = crosscheck(paymentBox.value, deliveryBox.value);
+        tbody.replaceChildren();
+        for (const f of report.findings) {
+          const tr = doc.createElement('tr');
+          for (const value of [f.transactionId, f.level, f.code, f.detail]) {
+            const td = doc.createElement('td'); td.textContent = value; tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        }
+        summary.textContent = report.records.payments + ' payment rows · ' + report.records.deliveries + ' delivery rows · ' + report.counts.review + ' review flags · ' + report.counts.match + ' record-only matches · ' + report.counts.info + ' informational findings.';
+        note.textContent = report.disclaimer;
+        results.hidden = false;
+        lastReport = report;
+        if (exportButton) exportButton.disabled = false;
+      } catch (error) {
+        note.textContent = error.message;
+        invalidateReport();
+      }
+    });
+  }
+
+  return { parseCSV, parseTable, crosscheck, reportCSV, mount };
+});
+</script>
+</body>
+</html>
