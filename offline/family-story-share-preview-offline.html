@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>家族故事分享預演｜Moruneva 免費離線試作</title>
+  <style>
+    :root { color-scheme: light; --ink:#233332; --muted:#52635f; --line:#ccd9d3; --bg:#f3f5f0; --paper:#fffef9; --accent:#165d51; --soft:#e6f0e9; --warn:#7c4c23; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,"Noto Sans TC",sans-serif; }
+    main { max-width:980px; margin:auto; padding:32px 22px 64px; }
+    header { max-width:820px; margin-bottom:28px; }
+    .eyebrow { color:var(--accent); font-size:.82rem; letter-spacing:.07em; font-weight:700; }
+    h1 { font-size:clamp(1.85rem,4.8vw,2.85rem); line-height:1.25; margin:10px 0 14px; letter-spacing:.02em; }
+    h2 { font-size:1.25rem; margin:0 0 12px; }
+    h3 { font-size:1.05rem; margin:0 0 8px; }
+    p { margin:8px 0 14px; }
+    a { color:var(--accent); }
+    .lead { color:var(--muted); font-size:1.05rem; }
+    .notice { border-left:4px solid #a67a45; background:#fff4df; padding:13px 16px; border-radius:0 10px 10px 0; }
+    .grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; }
+    section,.segment { background:var(--paper); border:1px solid var(--line); border-radius:15px; padding:20px; }
+    .wide { grid-column:1 / -1; }
+    label { display:block; font-weight:650; margin:0 0 6px; }
+    textarea,select { font:inherit; width:100%; color:var(--ink); background:#fff; border:1px solid #aebfb6; border-radius:8px; padding:10px; }
+    textarea { resize:vertical; min-height:150px; }
+    textarea[readonly] { background:#f5f7f4; }
+    select { min-height:43px; }
+    button { cursor:pointer; background:var(--accent); color:white; border:1px solid var(--accent); border-radius:9px; padding:10px 16px; font:inherit; font-weight:700; }
+    button.secondary { background:white; color:var(--accent); }
+    button:disabled { opacity:.45; cursor:not-allowed; }
+    button:focus-visible,select:focus-visible,textarea:focus-visible,input:focus-visible { outline:3px solid #b8d9cc; outline-offset:2px; }
+    .actions { display:flex; flex-wrap:wrap; gap:9px; margin:15px 0 0; }
+    .subtle { color:var(--muted); font-size:.9rem; }
+    .segment { padding:15px; margin:12px 0; background:white; }
+    .segment-words { white-space:pre-wrap; overflow-wrap:anywhere; margin-bottom:12px; }
+    .controls { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .check { display:flex; gap:8px; align-items:flex-start; margin-top:12px; font-size:.94rem; font-weight:400; }
+    .check input { margin-top:6px; min-width:17px; min-height:17px; }
+    .pill { display:inline-block; padding:3px 9px; background:var(--soft); border-radius:99px; font-size:.8rem; color:var(--accent); font-weight:700; }
+    .summary { padding:10px 13px; border-radius:8px; background:var(--soft); }
+    .warning { color:var(--warn); }
+    .empty { color:var(--muted); padding:12px; text-align:center; border:1px dashed var(--line); border-radius:8px; }
+    footer { margin-top:28px; color:var(--muted); font-size:.88rem; }
+    @media (max-width:680px) { .grid,.controls { grid-template-columns:1fr; } main { padding:22px 14px 45px; } section { padding:15px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">MORUNEVA · 免費離線研究試作 · 2026-11-18</div>
+    <h1>家族故事，分享前先讓本人決定。</h1>
+    <p class="lead">把一份故事摘要分成幾段，先保留、再逐段審閱。你可以預演「給核心家人」與「給較大親友圈」兩份不同內容。所有工作只在這個網頁的記憶體內完成。</p>
+    <p class="notice"><strong>請僅使用虛構文字。</strong>此研究版沒有身分驗證、簽署、錄音、雲端同步或權限管理，也無法證明講述者真正同意。正式分享前，務必由本人核對全部內容，並自行考量故事涉及的其他人；不要在此輸入真姓名、住址、病歷或家族秘密。</p>
+  </header>
+  <div class="grid">
+    <section>
+      <h2>一、準備故事段落</h2>
+      <p class="subtle">一行代表一段，最多12段，每段最多350字。此處不會存檔。改動原文會清除原有勾選，避免把舊決定套到新內容。</p>
+      <label for="source">虛構故事文字</label>
+      <textarea id="source" placeholder="例如：外婆年輕時在書店工作……"></textarea>
+      <div class="actions">
+        <button id="example" type="button">載入虛構例子</button>
+        <button id="prepare" class="secondary" type="button">建立待審段落</button>
+        <button id="clear" class="secondary" type="button">全部清空</button>
+      </div>
+      <p id="source-status" class="subtle" role="status" aria-live="polite"></p>
+    </section>
+    <section>
+      <h2>二、逐段標記</h2>
+      <p class="subtle">每段預設「保留不分享」。標記「可列入分享草稿」後，仍須另外確認講述者核對及相關第三人資料；否則不列入輸出。</p>
+      <div id="segments" class="empty">請先載入虛構例子。</div>
+    </section>
+    <section class="wide">
+      <h2>三、預演分享範圍</h2>
+      <label for="audience">這份草稿打算給誰看？</label>
+      <select id="audience">
+        <option value="close">核心家人</option>
+        <option value="wide">較大親友圈</option>
+      </select>
+      <div class="actions">
+        <button id="preview" type="button">更新分享預覽</button>
+        <button id="download-share" class="secondary" type="button" disabled>下載可分享草稿（文字）</button>
+        <button id="download-review" class="secondary" type="button" disabled>下載私密審閱備份（JSON）</button>
+      </div>
+      <p class="subtle warning">私密備份含全部原文（包括不分享段落），請勿轉傳。安全分享稿只含通過本頁自我勾選的段落，仍須在頁外完成真正的本人授權。</p>
+      <p id="result-status" class="summary" aria-live="polite">尚未建立預覽。</p>
+      <label for="result">分享文字草稿（唯讀）</label>
+      <textarea id="result" readonly aria-label="可分享文字草稿"></textarea>
+    </section>
+  </div>
+  <footer>本頁不連接伺服器、不包含追蹤碼，也沒有自動發送功能。關閉頁面即失去未下載內容。口述歷史的事前知情同意、本人事後審閱及限制公開原則，請參考 <a href="https://oralhistory.org/best-practices/" rel="noopener noreferrer" target="_blank">口述歷史協會實務指引</a>。這是研究試作，沒有真人使用、付費或權限驗證紀錄。</footer>
+</main>
+<script>
+// STORY_CORE_BEGIN — these pure functions are exercised by tests.
+const STORY_LIMIT = 12;
+const STORY_CHARS = 350;
+function parseStory(text) {
+  const lines = String(text).split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+  if (!lines.length) throw new Error('請先輸入至少一段虛構文字。');
+  if (lines.length > STORY_LIMIT) throw new Error('最多只能建立12段；請先合併或刪減段落。');
+  if (lines.some(line => [...line].length > STORY_CHARS)) throw new Error('每段最多350字，請縮短後重試。');
+  return lines.map((content, index) => ({ id: index + 1, content, decision: 'private', audience: 'close', narratorChecked: false, othersChecked: false }));
+}
+function makeSharePreview(items, audience) {
+  if (!['close', 'wide'].includes(audience)) throw new Error('分享對象無效。');
+  const included = [];
+  const excluded = [];
+  const blockers = [];
+  for (const item of items) {
+    const eligible = item.decision === 'allow' && item.narratorChecked === true && item.othersChecked === true;
+    const inAudience = audience === 'close' || item.audience === 'wide';
+    if (eligible && inAudience) included.push(item);
+    else {
+      excluded.push(item);
+      if (item.decision === 'allow' && (!item.narratorChecked || !item.othersChecked)) blockers.push(item.id);
+    }
+  }
+  const text = included.map(item => item.content).join('\n\n');
+  return { included, excluded, blockers, text };
+}
+function makePrivateBackup(items) {
+  return JSON.stringify({ type: 'Moruneva family story PRIVATE review draft', version: 1,
+    caution: '含全部文字及操作者自述；不能證明本人授權，切勿當作已核准的公開檔。', segments: items }, null, 2);
+}
+// STORY_CORE_END
+const sourceEl = document.getElementById('source');
+const sourceStatus = document.getElementById('source-status');
+const segmentRoot = document.getElementById('segments');
+const resultEl = document.getElementById('result');
+const resultStatus = document.getElementById('result-status');
+const audienceEl = document.getElementById('audience');
+const btnShare = document.getElementById('download-share');
+const btnReview = document.getElementById('download-review');
+let items = [];
+let preparedSource = '';
+let currentPreview = null;
+function invalidatePreview() {
+  currentPreview = null;
+  resultEl.value = '';
+  resultStatus.textContent = '內容或審閱選項有變動，請重新更新分享預覽。';
+  btnShare.disabled = true;
+  btnReview.disabled = !items.length;
+}
+function renderItems() {
+  segmentRoot.replaceChildren();
+  if (!items.length) { segmentRoot.className = 'empty'; segmentRoot.textContent = '目前沒有待審段落。'; return; }
+  segmentRoot.className = '';
+  items.forEach((item, index) => {
+    const wrap = document.createElement('article'); wrap.className = 'segment';
+    const title = document.createElement('h3'); title.textContent = `第 ${index + 1} 段`; wrap.append(title);
+    const content = document.createElement('p'); content.className = 'segment-words'; content.textContent = item.content; wrap.append(content);
+    const controls = document.createElement('div'); controls.className = 'controls';
+    const decisionBox = document.createElement('div');
+    const decisionLabel = document.createElement('label'); decisionLabel.textContent = '分享決定';
+    const decision = document.createElement('select'); decision.setAttribute('aria-label', `第${index+1}段分享決定`);
+    [['private','保留不分享'],['review','待本人審閱'],['allow','可列入分享草稿']].forEach(([value,label]) => { const option = document.createElement('option'); option.value = value; option.textContent = label; decision.append(option); });
+    decision.value = item.decision;
+    decision.addEventListener('change', () => { item.decision = decision.value; invalidatePreview(); });
+    decisionBox.append(decisionLabel,decision);
+    const scopeBox = document.createElement('div'); const scopeLabel = document.createElement('label'); scopeLabel.textContent = '分享圈';
+    const scope = document.createElement('select'); scope.setAttribute('aria-label', `第${index+1}段分享圈`);
+    [['close','僅核心家人'],['wide','可給較大親友圈']].forEach(([value,label]) => { const option = document.createElement('option'); option.value=value; option.textContent=label; scope.append(option); });
+    scope.value=item.audience; scope.addEventListener('change',() => { item.audience=scope.value; invalidatePreview(); });
+    scopeBox.append(scopeLabel,scope); controls.append(decisionBox,scopeBox); wrap.append(controls);
+    const makeCheck = (key,description) => {
+      const lab=document.createElement('label'); lab.className='check';
+      const check=document.createElement('input'); check.type='checkbox'; check.checked=item[key];
+      check.addEventListener('change',() => { item[key]=check.checked; invalidatePreview(); });
+      const txt=document.createElement('span'); txt.textContent=description; lab.append(check,txt); return lab;
+    };
+    wrap.append(makeCheck('narratorChecked','操作者自述：講述者已逐字核對並同意此段及分享圈。'));
+    wrap.append(makeCheck('othersChecked','操作者自述：此段不含未妥善處理的第三人敏感資訊。'));
+    segmentRoot.append(wrap);
+  });
+}
+function resetState() { items=[]; preparedSource=''; renderItems(); invalidatePreview(); btnReview.disabled=true; }
+document.getElementById('example').addEventListener('click', () => {
+  sourceEl.value='外婆說她第一次看見那間小書店，是一個下雨的下午。\n她曾經把不想公開的工作經歷記在私人筆記裡。\n多年後，她仍記得老闆在門口擺放的一盆桂花。';
+  resetState(); sourceStatus.textContent='已載入虛構文字；請按「建立待審段落」。';
+});
+document.getElementById('prepare').addEventListener('click', () => {
+  try { items=parseStory(sourceEl.value); preparedSource=sourceEl.value; renderItems(); invalidatePreview(); sourceStatus.textContent=`已建立${items.length}段，全部預設保留不分享。`; }
+  catch(error) { resetState(); sourceStatus.textContent=error.message; }
+});
+document.getElementById('clear').addEventListener('click', () => { sourceEl.value=''; resetState(); sourceStatus.textContent='已清空；本頁不保留草稿。'; });
+sourceEl.addEventListener('input', () => { if (sourceEl.value !== preparedSource && items.length) { resetState(); sourceStatus.textContent='原文已更動；舊審閱決定已清除，請重新建立。'; } });
+audienceEl.addEventListener('change', invalidatePreview);
+document.getElementById('preview').addEventListener('click', () => {
+  if (!items.length) { resultStatus.textContent='請先建立待審段落。'; return; }
+  currentPreview=makeSharePreview(items,audienceEl.value);
+  resultEl.value=currentPreview.text;
+  const blockers=currentPreview.blockers.length ? `其中${currentPreview.blockers.length}段雖標記可分享，但兩項自我確認未齊，因此已排除。` : '';
+  resultStatus.textContent=`共${items.length}段；此份納入${currentPreview.included.length}段、排除${currentPreview.excluded.length}段。${blockers} 操作者勾選不等於真正授權。`;
+  btnShare.disabled=!currentPreview.included.length;
+  btnReview.disabled=false;
+});
+function download(name,text,type) {
+  const blob=new Blob([text], {type}); const href=URL.createObjectURL(blob);
+  const link=document.createElement('a'); link.href=href; link.download=name; link.click();
+  setTimeout(()=>URL.revokeObjectURL(href),1000);
+}
+btnShare.addEventListener('click', () => {
+  if (!currentPreview || !currentPreview.included.length) return;
+  download('family-story-share-draft.txt',`家族故事分享草稿（操作者自述，尚待本人在頁外正式核可）\n\n${currentPreview.text}\n`,'text/plain;charset=utf-8');
+});
+btnReview.addEventListener('click', () => {
+  if (!items.length) return;
+  if (!window.confirm('私密備份含全部段落，包括不分享的文字。確定在自己的裝置上下載且不轉傳嗎？')) return;
+  download('family-story-PRIVATE-review.json',makePrivateBackup(items),'application/json;charset=utf-8');
+});
+renderItems();
+</script>
+</body>
+</html>
