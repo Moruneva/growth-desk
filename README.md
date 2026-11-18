@@ -1,5 +1,11 @@
 # Growth Desk
 
+## Family story sharing: free offline narrator-review rehearsal (November 18, 2026)
+
+[Download the Chinese-language, single-file offline share preview](offline/family-story-share-preview-offline.html) and read the [Chinese evidence-and-alternatives field guide](guides/family-story-sharing-field-guide.md). With **fictional text only**, the tool starts every passage private, simulates a close-family versus extended-family review, and exports only passages the operator has separately marked as reviewed and cleared for third-party sensitivity. A private JSON backup contains **all** passages and must never be forwarded. It sends no messages, uploads nothing, and stores no data after the page closes.
+
+**Evidence boundary:** this is an experimental draft tool, not an identity check, actual consent record, legal release, production story archive, or verified privacy safeguard. The narrator must independently review and authorize any real-world sharing outside this page. Pure Node source tests passed 11/11; automated Chromium launch was blocked by environment permissions, so no browser acceptance or independent user testing is claimed. Compare first against a free document editor, Storyworth, Remento, and QStory AI. No verified external first use, buyer, paid checkout, or revenue.
+
 ## Digital goods: free offline payment-to-delivery **record** crosscheck (November 17, 2026)
 
 **No payment connection or data upload.** [Download the offline Digital Delivery Crosscheck preview](offline/digital-delivery-crosscheck-offline.html), open the HTML file locally, select **Load fictional example**, compare the invented payment/delivery lists and **Download CSV review report**. This flags disagreements between user-supplied records; **it cannot verify an actual payment, customer entitlement, successful delivery, or refund status against PayPal or any other provider**. Never fulfill an order based solely on this tool. Do not enter customer records, transaction IDs, credentials or private financial exports.
