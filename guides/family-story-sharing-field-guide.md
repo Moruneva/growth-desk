@@ -65,6 +65,8 @@
 
 只有證實這些需求，才值得研究完整的跨裝置存檔、真正本人審閱流程及合法商業化。否則維持免費素材，將時間轉向更有根據的產品。
 
+**自願回報途徑**：若你只是使用虛構段落試過，歡迎寄一封不含姓名、照片、故事原文或真實家庭資訊的簡短結果至 [hello@moruneva.com](mailto:hello@moruneva.com?subject=Family%20Story%20Share%20Preview%20-%20Fictional%20Trial)。只要告訴我們：原本用什麼免費方法、兩種方法各花多久、哪一種比較安心或方便；「原本方法比較好」同樣是有用結果。寄件是自願的，無需先建立帳戶、不得回傳真人故事；我們不會因此宣稱你已成為買家。
+
 ## 實際看過的來源與證據界線
 
 - [口述歷史協會：最佳實務](https://oralhistory.org/best-practices/)與[倫理聲明](https://oralhistory.org/oha-statement-on-ethics/)：倫理流程，**不等於本工具符合正式授權**。
