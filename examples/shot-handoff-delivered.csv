@@ -1,0 +1,6 @@
+shot_id,revision,fps,width,height,frames,review_status
+A010,2,24,1920,1080,96,approved
+A020,2,24,1920,1080,118,pending
+A040,1,24,1920,1080,48,approved
+A050,3,25,2048,1080,60,approved
+A060,1,24,1920,1080,30,unknown
