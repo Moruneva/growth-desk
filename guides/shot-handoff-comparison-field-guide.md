@@ -2,6 +2,12 @@
 
 *A practical, fictional exercise for editors and production coordinators. Updated 18 November 2026.*
 
+## Before spending five minutes
+
+This exercise is intended for an **assistant editor, editorial/VFX assistant, or post-production coordinator** who already has two small *shot-ID metadata lists*—one expected, one delivered. You may be a person who checks a turnover or a receiving handoff, but this utility never opens or verifies the media itself. A [published receiving-workflow example](https://aspect.inc/blog/post-production/from-shoot-to-edit-an-ingest-and-dailies-workflow-for-remote-teams) assigns distinct checks to assistants, dailies operators and post supervisors; it is one vendor's workflow guidance, **not Moruneva customer evidence**.
+
+**Stop immediately if the lists do not exist in your normal process.** Do not create new production spreadsheets just to try this tool. If you ordinarily reconcile media counts, bytes or checksums, validate sound/proxies, compare timeline revisions or certify delivery acceptance, use the appropriate established ingest, editorial or tracking method. Please tell us the reason this exercise does not fit—especially if preparing two lists would cost more effort than the comparison saves.
+
 ## Choose the right existing tool first
 
 A shot handoff and a timeline recut are different questions. Before trying Moruneva, check whether your existing system already answers yours.
