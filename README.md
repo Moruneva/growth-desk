@@ -1,5 +1,9 @@
 # Growth Desk
 
+## Field service: free scope-change-to-invoice self-check (Chinese, November 18, 2026)
+
+[Read the original Chinese field guide and five-change fictional exercise](guides/field-service-scope-change-invoice-self-check-zh-tw.md). It shows how a service owner can compare an existing quote, change confirmations, and invoice lines by their identifiers, identify missing approved work, unconfirmed charges, amount differences, and duplicates, then verify them manually. Free spreadsheet formulas and mature software alternatives are included. The guide offers a **voluntary email-only buyer-research route** for owners with a genuine recent problem; no real customer records should be sent. **No Moruneva field-service software is offered for sale**, and no independent trial, qualified buyer, payment, or revenue is verified. Existing quote/dispatch tools may already solve the entire job.
+
 ## Family story sharing: free offline narrator-review rehearsal (November 18, 2026)
 
 [Download the Chinese-language, single-file offline share preview](offline/family-story-share-preview-offline.html) and read the [Chinese evidence-and-alternatives field guide](guides/family-story-sharing-field-guide.md). With **fictional text only**, the tool starts every passage private, simulates a close-family versus extended-family review, and exports only passages the operator has separately marked as reviewed and cleared for third-party sensitivity. A private JSON backup contains **all** passages and must never be forwarded. It sends no messages, uploads nothing, and stores no data after the page closes.
