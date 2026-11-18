@@ -14,6 +14,8 @@
 
 **Prefer to inspect the source?** [View the Shot Handoff Preflight offline HTML in this repository](https://github.com/Moruneva/growth-desk/blob/main/offline/shot-handoff-preflight-offline.html). The tool does not upload footage or require sign-in. Use fictional or independently authorized, non-identifying shot codes only.
 
+**Need a fair baseline?** [Compare the same fictional manifest in Moruneva and a spreadsheet](guides/shot-handoff-comparison-field-guide.md), with PostBase and Autodesk alternatives and a transparent answer key. The established free method may be faster.
+
 **Do you regularly verify handoffs?** [Try the voluntary 5–10-minute editor trial and report if your spreadsheet was better](https://github.com/Moruneva/growth-desk/issues/6). Use fictional or independently authorized non-identifying codes only—no footage, project names, client details or secrets. A GitHub account is only needed to comment, not to try the file; a short non-identifying email to hello@moruneva.com is also optional. No paid product is offered.
 
 *Evidence: automated local-file Chromium checks at four sizes, plus screenshot review. No independently verified editor first use or repeat use; the public website release has not passed its separate security gate.*
