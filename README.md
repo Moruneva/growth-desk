@@ -10,7 +10,9 @@
 
 ## Film production: free offline shot handoff trial (November 16, 2026)
 
-**No footage upload or sign-in.** The [Shot Handoff Preflight offline preview](https://github.com/Moruneva/growth-desk/blob/main/offline/shot-handoff-preflight-offline.html) is a single HTML file. Download it, open it locally, load the fictional spreadsheet example, compare the expected and delivered shots, and export a JSON or CSV report.
+**Fastest first try:** [Download the free single-file HTML from itch.io](https://moruneva.itch.io/shot-handoff-preflight-moruneva#download). This link opens at the actual **Download** button. No account or payment is required. Save the file, open it locally in a desktop browser, select **Load spreadsheet example** and **Check handoff**, then export JSON or CSV findings.
+
+**Prefer to inspect the source?** [View the Shot Handoff Preflight offline HTML in this repository](https://github.com/Moruneva/growth-desk/blob/main/offline/shot-handoff-preflight-offline.html). The tool does not upload footage or require sign-in. Use fictional or independently authorized, non-identifying shot codes only.
 
 **Do you regularly verify handoffs?** [Try the voluntary 5–10-minute editor trial and report if your spreadsheet was better](https://github.com/Moruneva/growth-desk/issues/6). Use fictional or independently authorized non-identifying codes only—no footage, project names, client details or secrets. A GitHub account is only needed to comment, not to try the file; a short non-identifying email to hello@moruneva.com is also optional. No paid product is offered.
 
