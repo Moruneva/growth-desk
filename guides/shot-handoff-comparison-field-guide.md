@@ -55,6 +55,8 @@ A060,1,24,1920,1080,30,unknown
 
 For the six distinct shot codes in these two lists, the v1 decision rules imply **2 metadata-matched rows**, **4 rows needing review**, **1 missing expected row** and **1 extra delivered row**. This is a reproducible answer key based on the published code's decision rules, not an independent editor outcome.
 
+**Reproducible code check (18 November 2026):** The exact two CSV blocks above were executed through the published v1 parser and comparison core. A dependency-free [regression test](https://github.com/Moruneva/growth-desk/blob/main/tests/shot-handoff-comparison-guide.test.cjs) checks all six shot-flag sets, the four totals, the export and six rejected invalid-input cases. It passed locally against files with Git blob hashes identical to those on `main` at the time of the check. To repeat after cloning the repository, run `node tests/shot-handoff-comparison-guide.test.cjs`. This is software-contract evidence, **not** an independent workflow benchmark, customer acceptance or delivery certification.
+
 ## Compare the free spreadsheet fairly
 
 1. Duplicate the fictional data into two tabs named `Expected` and `Delivered`. Start the timer **after** the data is already present; do the same in Moruneva.
