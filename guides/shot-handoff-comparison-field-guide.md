@@ -18,7 +18,7 @@ A shot handoff and a timeline recut are different questions. Before trying Morun
 
 ## An identical fictional handoff for both methods
 
-Copy each block into its own spreadsheet tab, or paste each entire block into the corresponding input field of the Moruneva offline file. The headers must match exactly. These invented shot codes refer to no person, project or real footage.
+**Prepared fictional CSV files:** [Expected manifest](../examples/shot-handoff-expected.csv) and [Delivered manifest](../examples/shot-handoff-delivered.csv). Open or save the two files, then import them into separate spreadsheet tabs or paste their text into the corresponding fields of Moruneva's offline file. The same exact CSV rows are printed below for auditability. If your browser displays the CSV as text, save it with the `.csv` extension. The headers must match exactly. These invented shot codes refer to no person, project or real footage.
 
 **Expected manifest — five rows**
 
@@ -55,7 +55,7 @@ A060,1,24,1920,1080,30,unknown
 
 For the six distinct shot codes in these two lists, the v1 decision rules imply **2 metadata-matched rows**, **4 rows needing review**, **1 missing expected row** and **1 extra delivered row**. This is a reproducible answer key based on the published code's decision rules, not an independent editor outcome.
 
-**Reproducible code check (18 November 2026):** The exact two CSV blocks above were executed through the published v1 parser and comparison core. A dependency-free [regression test](https://github.com/Moruneva/growth-desk/blob/main/tests/shot-handoff-comparison-guide.test.cjs) checks all six shot-flag sets, the four totals, the export and six rejected invalid-input cases. It passed locally against files with Git blob hashes identical to those on `main` at the time of the check. To repeat after cloning the repository, run `node tests/shot-handoff-comparison-guide.test.cjs`. This is software-contract evidence, **not** an independent workflow benchmark, customer acceptance or delivery certification.
+**Reproducible code check (18 November 2026):** The exact two CSV blocks above were executed through the published v1 parser and comparison core. A dependency-free [regression test](https://github.com/Moruneva/growth-desk/blob/main/tests/shot-handoff-comparison-guide.test.cjs) verifies the two published CSV files match the guide verbatim, then checks all six shot-flag sets, the four totals, the export and six rejected invalid-input cases. It passed locally against files with Git blob hashes identical to those on `main` at the time of the check. To repeat after cloning the repository, run `node tests/shot-handoff-comparison-guide.test.cjs`. This is software-contract evidence, **not** an independent workflow benchmark, customer acceptance or delivery certification.
 
 ## Compare the free spreadsheet fairly
 
